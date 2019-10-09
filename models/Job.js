@@ -6,7 +6,7 @@ const Job = db.define('job', {
     title: {
         type: Sequelize.STRING
     },
-    technology: {
+    technologies: {
         type: Sequelize.STRING
     },
     description: {
