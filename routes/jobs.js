@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
 const db = require('../config/database');
 const Job = require('../models/Job');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // GET JOBS LIST
 router.get('/', (req, res) => 
@@ -48,6 +49,14 @@ router.post('/add', (req, res) => {
             contact_email
         })
     }else {
+        if(!budget) {
+            budget = 'Unknown';
+        } else {
+            budget = `$${budget}`
+        }
+        // Make lowercase and remove space after commas
+        technologies = technologies.toLowerCase().replace(/, /g, ','); 
+
         //Insert into the table
         Job.create({
             title,
@@ -61,4 +70,15 @@ router.post('/add', (req, res) => {
     }
 })
 
+//Search for jobs
+
+router.get('/search', (req, res) => {
+    let {term} = req.query;
+
+    term = term.toLowerCase();
+
+    Job.findAll({where: {technologies: {[Op.like]: '%' + term + '%'}}})
+    .then(jobs => res.render('jobs', {jobs}))
+    .catch(err => console.log(err));
+})
 module.exports = router; 

@@ -13,7 +13,7 @@
             </div>
             <div class="input-group">
                 <label for="technologies">Technologies Needed</label>
-                <input type="text" name="technologies" id="technologies" class="input-box" placeholder="eg. javascript, react, PHP" maxlength="100" value={{technologies}}>
+                <input type="text" name="technologies" id="technologies" class="input-box" placeholder="eg. javascript, react, PHP" maxlength="100" required value={{technologies}}>
             </div>
             <div class="input-group">
                 <label for="budget">Budget (Leave blank for unknown)</label>
@@ -21,11 +21,11 @@
             </div>
             <div class="input-group">
                 <label for="description">Job Description</label>
-                <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the job" rows="10">{{description}}</textarea>
+                <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the job" rows="10" required>{{description}}</textarea>
             </div>
             <div class="input-group">
                 <label for="budget">Contact Email</label>
-                <input type="email" name="contact_email" id="contactemail" class="input-box" placeholder="Enter an email" value={{contact_email}}>
+                <input type="email" name="contact_email" id="contactemail" class="input-box" placeholder="Enter an email" required value={{contact_email}}>
                 <p><em>Your contact email will be shared with registered users to apply to your job</em></p>
             </div>
             <input type="submit" value="Add Job" class="btn btn-reverse">
