@@ -23,12 +23,29 @@ ul {
 }
 
 a {
-    color: rgb(255, 255, 255);
+    color: var(--primary-color);
     text-decoration: none;
 }
 
-a:hover {
+.reverse-link {
+    color: white;
+    text-decoration: none;
+}
+
+.reverse-link:hover {
     color: var(--primary-color);
+}
+
+#title {
+    color: var(--primary-color);
+}
+
+#secondary-text {
+    color: var(--bg-color);
+}
+
+a:hover {
+    color: white;
 }
 
 .container {
@@ -148,7 +165,7 @@ header.inner {
 }
 
 .search-form i {
-    color: rgb(255, 255, 255);
+    color: var(--bg-color);
 }
 
 /* Everything in the search form */

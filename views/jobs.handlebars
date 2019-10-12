@@ -1,6 +1,5 @@
 <section id="gigs" class="container">
-    <h1>All Jobs</h1>
-
+    <h1 id="title">All Jobs</h1>
     {{#each jobs}}
     <div class="gig">
         <h2>{{title}}</h2>
@@ -10,6 +9,12 @@
             <li>
                 <a href="#" class="btn btn-reverse">Apply Now</a>
             </li>
+            <li>
+                <a href="#" class="reverse-link"><i class="far fa-heart"></i> Save</a>
+            </li>
+            <li>
+                <a href="#" class="reverse-link"><i class="fas fa-envelope"></i> Email</a>
+            </li>
         </ul>
         <div class="tech">
             <small>Technologies Needed:
@@ -18,8 +23,7 @@
         </div>
     </div>
     {{else}}
-        <p>No Jobs available</p>
+        <p id="secondary-text">No Jobs available</p>
      {{/each}}
-    
-
+ 
 </section>

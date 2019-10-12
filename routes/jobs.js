@@ -74,11 +74,11 @@ router.post('/add', (req, res) => {
 
 router.get('/search', (req, res) => {
     let {term} = req.query;
-
     term = term.toLowerCase();
-
+    
     Job.findAll({where: {technologies: {[Op.like]: '%' + term + '%'}}})
     .then(jobs => res.render('jobs', {jobs}))
+    
     .catch(err => console.log(err));
 })
-module.exports = router; 
+module.exports = router;  
