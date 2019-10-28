@@ -4,20 +4,20 @@ const db = require('../config/database');
 const Job = require('../models/Job');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+const axios = require('axios');
 
-// GET JOBS LIST
-router.get('/', (req, res) => 
-    Job.findAll().then(jobs => {
-        res.render('jobs', {
-            jobs
-        })
-    }).catch(err => console.log(err))
-)
+// // GET JOBS LIST
+// router.get('/jobs', (req, res) => 
+//     Job.findAll().then(jobs => {
+//         res.render('jobs', {
+//             jobs
+//         })
+//     }).catch(err => console.log(err))
+// )
 
 // ADD JOBS FORM
 router.get('/add', (req, res) => {
     res.render('add')
-  
 })
 
 //GET DATA FROM FORM AND SAVE IT TO THE DB
@@ -71,14 +71,31 @@ router.post('/add', (req, res) => {
 })
 
 //Search for jobs
+router.post('/search', (req, res) => { 
 
-router.get('/search', (req, res) => {
-    let {term} = req.query;
-    term = term.toLowerCase();
+    let term = req.body.term;
+    let location = req.body.location;
+
+    let gitHub_API_URL = `https://jobs.github.com/positions.json?description=${term}&location=${location}`;
+
+    console.log(gitHub_API_URL)
+
+    axios.get(gitHub_API_URL)
+    .then(function (response) {
+        let jobs = response.data;
+        console.log(jobs)
+        res.render('jobs', {
+            jobs
+        })
+    })
+    .catch(error => {
+        console.log(error)
+    })
+
     
-    Job.findAll({where: {technologies: {[Op.like]: '%' + term + '%'}}})
-    .then(jobs => res.render('jobs', {jobs}))
+    // Job.findAll({where: {technologies: {[Op.like]: '%' + term + '%'}}})
+    // .then(jobs => res.render('jobs', {jobs}))
     
-    .catch(err => console.log(err));
+    // .catch(err => console.log(err));
 })
 module.exports = router;  

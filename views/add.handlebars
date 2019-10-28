@@ -6,10 +6,10 @@
                 <p>{{text}}</p>
             </div>
         {{/each}}
-        <form action="/jobs/add" method="POST">
+        <form action="/add" method="POST">
             <div class="input-group">
                 <label for="title">Job Title</label>
-                <input type="text" name="title" id="title" class="input-box" placeholder="eg. Small Wordpress website, React developer" maxlength="100" value={{title}}>
+                <input type="text" name="title" id="title" class="input-box" placeholder="eg. React developer" maxlength="100" value={{title}}>
             </div>
             <div class="input-group">
                 <label for="technologies">Technologies Needed</label>

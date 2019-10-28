@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/d2d9d0e374.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Jobbies</title>
 </head>
 
 <body>
-    <header class="inner">
+    <header>
         <h2>
             <a href="/">
-                <i class="fas fa-code"></i>
+                <i class="fab fa-react"></i>
                 Jobbies</a>
         </h2>
         <nav>
@@ -23,18 +23,18 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/jobs">All Jobs</a>
+                    <a href="/jobs">All jobs</a>
+                </li>
+                <li class="apply">
+                    <span>Employer?</span>
                 </li>
                 <li>
-                    <a href="/jobs/add">Add New Job</a>
+                    <a href="/add" class="btn btn-reverse">Post a Job for Free</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <div class="container">
-         {{{body}}}
-    </div>
-    
+    {{{body}}}
 </body>
 
 </html>

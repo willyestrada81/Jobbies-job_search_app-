@@ -1,29 +1,52 @@
 <section id="gigs" class="container">
-    <h1 id="title">All Jobs</h1>
+    <h1 id="title">{{jobs.length}}&nbspJobs founds</h1>
     {{#each jobs}}
     <div class="gig">
-        <h2>{{title}}</h2>
-        <p>{{description}}</p>
+        <div class="job-info-grid">
+            <div class="left">
+                <a href="#" class="job-title">{{title}}</a>
+                <p>
+                    {{company}}
+                </p>
+                <p>
+                    {{location}}
+                </p>
+                
+            </div>
+            <div class="right">
+                <img src="{{company_logo}}" alt="company-logo" class="company-logo">
+                <small>
+                    Posted:&nbsp{{created_at}}
+                </small>
+            </div>
+        </div>
         <ul>
-            <li>Budget: {{budget}}</li>
             <li>
-                <a href="#" class="btn btn-reverse">Apply Now</a>
-            </li>
-            <li>
-                <a href="#" class="reverse-link"><i class="far fa-heart"></i> Save</a>
-            </li>
-            <li>
-                <a href="#" class="reverse-link"><i class="fas fa-envelope"></i> Email</a>
+                
             </li>
         </ul>
+
+        <ul>
+            <li>{{type}} </li>
+            <li>
+                <a href="#" class="reverse-link">
+                    <i class="far fa-heart"></i> Save</a>
+            </li>
+        </ul>
+        <div>
+            <a href="mailto:{{contact_email}}" class="btn btn-reverse">Read More
+                <i class="fas fa-chevron-circle-down"></i>
+            </a>
+        </div>
         <div class="tech">
-            <small>Technologies Needed:
-                <span>{{technologies}}</span>
+            <small>Location:
+                <span>{{location}}</span>
+            </small>
+            <small>Posted:
+                <span>{{created_at}}</span>
             </small>
         </div>
     </div>
-    {{else}}
-        <p id="secondary-text">No Jobs available</p>
-     {{/each}}
- 
+    {{else}} {{/each}}
+
 </section>

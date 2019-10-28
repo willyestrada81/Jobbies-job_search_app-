@@ -3,6 +3,9 @@
     --primary-color: rgb(193, 0, 36);
     --primary-hover-color: rgb(129, 26, 50);
     --bg-color: rgb(25, 29, 48);
+    --light-gray: rgb(245, 245, 245);
+    --gray: rgb(130, 130, 133);
+    --dark-gray: rgb(46, 46, 50);
     --box-shadow: 3px 4px 12px #cbf1ff80;
 }
 
@@ -14,7 +17,7 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     color: #fff;
-    background: #ffffff;
+    background: var(--bg-color);
 }
 
 ul {
@@ -25,6 +28,19 @@ ul {
 a {
     color: var(--primary-color);
     text-decoration: none;
+}
+
+.apply {
+    margin-right: 0;
+    margin-left: 3rem;
+}
+
+input.term-search {
+    padding-right: 1rem;
+}
+
+form i.search-icon {
+    border-left: .3px solid gray;
 }
 
 .reverse-link {
@@ -187,7 +203,7 @@ input[type='search'] {
 /* Gigs */
 
 .gig {
-    background: var(--bg-color);
+    background: var(--light-gray);
     border-bottom: 4px solid var(--primary-color);
     color: rgb(255, 255, 255);
     padding: 1rem;
@@ -195,7 +211,9 @@ input[type='search'] {
     box-shadow: var(--box-shadow);
     border-radius: 10px;
 }
-
+.gig p {
+    color: var(--gray);
+}
 .gig ul {
     list-style: none;
     display: flex;
@@ -204,10 +222,38 @@ input[type='search'] {
 .gig li {
     margin-right: 0.5rem;
     padding: 0.6rem;
+    align-content: flex-start;
+}
+.gig h1 {
+    margin-top: 0;
 }
 
 .gig .tech span {
     color: var(--primary-color);
+}
+
+.fa-chevron-circle-down {
+    margin-left: 6px;
+}
+.job-title {
+    font-size: 1.4rem;
+}
+.job-info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 1.5rem;
+}
+.right {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+.company-logo {
+    width: 85px;
+    height: auto;
+}
+.job-type {
+    color: var (-var(--primary-color))
 }
 
 /* Form */
@@ -220,6 +266,7 @@ input[type='search'] {
     margin-top: 3rem;
     border-bottom: 4px solid var(--primary-color);
     box-shadow: var(--box-shadow);
+    border-radius: 10px;
 }
 
 .form-wrap.reg-form,
@@ -251,6 +298,7 @@ label {
     font-size: 18px;
     width: 100%;
     margin-bottom: 1.2rem;
+    color: var(--bg-color) !important;
 }
 
 /* Tablets */

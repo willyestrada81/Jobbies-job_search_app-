@@ -18,7 +18,7 @@ db
 const app = express();
 
 //Handlebars
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars');
 
 //Body Parser
@@ -28,11 +28,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
  
 //HOME PAGE
-app.get('/', (req, res) => res.render('index', {layout: 'landing'}));
+app.get('/', (req, res) => res.render('landing'));
 
 //Jobs Route
-app.use('/jobs', require('./routes/jobs'));
+app.use('/', require('./routes/jobs'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT , console.log(`Server running on port ${PORT}`))
+app.listen(PORT , console.log(`Server running on port ${PORT}`)) 
