@@ -4,47 +4,41 @@
     <div class="gig">
         <div class="job-info-grid">
             <div class="left">
-                <a href="#" class="job-title">{{title}}</a>
-                <p>
-                    {{company}}
-                </p>
-                <p>
-                    {{location}}
-                </p>
-                
+                <h2 class="job-title" onclick="expand()">{{title}}</h2>
+                <div class="job-details">
+                    <span><i class="far fa-building"></i>{{company}}</span>
+                    <span><i class="fas fa-map-marker-alt location"></i>{{location}}</span>
+                </div>
             </div>
             <div class="right">
-                <img src="{{company_logo}}" alt="company-logo" class="company-logo">
-                <small>
-                    Posted:&nbsp{{created_at}}
-                </small>
+                <a href="{{company_url}}" target="_blank" >
+                    <img src="{{company_logo}}" alt="company-logo" class="company-logo">
+                </a>
             </div>
         </div>
-        <ul>
-            <li>
-                
-            </li>
-        </ul>
-
-        <ul>
-            <li>{{type}} </li>
-            <li>
-                <a href="#" class="reverse-link">
-                    <i class="far fa-heart"></i> Save</a>
-            </li>
-        </ul>
-        <div>
-            <a href="mailto:{{contact_email}}" class="btn btn-reverse">Read More
-                <i class="fas fa-chevron-circle-down"></i>
-            </a>
+        
+        <div class="more-info">
+            <div class="read-more">
+                <button class="btn btn-reverse" onclick="expand()">Read More
+                    <i class="fas fa-chevron-circle-down"></i>
+                </button>
+            </div>
+            <div class="job-details">
+                <p class="job-type">{{type}}</p>
+                <p class="save">
+                    <i id="save-btn" class="far fa-heart"></i>Save</p>
+                <p class="date-posted">
+                    <small>Posted:&nbsp{{created_at}}</small>
+                </p>
+            </div>
         </div>
-        <div class="tech">
-            <small>Location:
-                <span>{{location}}</span>
-            </small>
-            <small>Posted:
-                <span>{{created_at}}</span>
-            </small>
+        <div class="description">
+            <h3>Description:</h3>
+            {{{description}}}
+            <div class="how-to-apply">
+                <h3>How to Apply:</h3>
+                 {{{how_to_apply}}}
+            </div>
         </div>
     </div>
     {{else}} {{/each}}
